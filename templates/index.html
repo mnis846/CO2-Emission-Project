@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2_emission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        h1{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 40px;
+            font-weight: bolder;
+            color: whitesmoke;
+            background-color: rgb(225, 0, 255);
+            text-align: center;
+        }
+        body{
+          
+            background: fixed;
+            background-image: url(/static/images.jpg)
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <h1>Co2 Emission</h1>
+        <hr>
+    </div>
+    <div class="main" style="padding: 10px;">
+        <form action="{{ url_for('make_prediction')}}"method="post">
+            <div class="row">
+                <div class="col">
+                  <h5 style="color: white; font-size: larger; text-align: center; padding: 10px; font-family: Arial, Helvetica, sans-serif;">Enter the Fuel Consumption in City: </h5>
+                </div>
+                <div class="col">
+                  <input type="text" name="f1" placeholder="FUELCONSUMPTION_HWY"
+                style="background-color: black; 
+                color: chartreuse; width: 500px; height: 30px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                  <h5 style="color: white; text-align: center; font-size: larger; padding: 10px; font-family: Arial, Helvetica, sans-serif;">Enter the Fuel Consumption in Highway: </h5>
+                </div>
+                <div class="col">
+                  <input type="text" name="f2" placeholder="FUELCONSUMPTION_HWY"
+                style="background-color: black; 
+                color: chartreuse; width: 500px; height: 30px;">
+                </div>
+              </div>
+            <div class="row">
+                <div class="col">
+                  <h5 style="color: white; text-align: center; font-size: larger; padding: 10px; font-family: Arial, Helvetica, sans-serif;">Enter the FUELCONSUMPTION_COMB: </h5>
+                </div>
+                <div class="col">
+                  <input type="text" name="f3" placeholder="FUELCONSUMPTION_COMB"
+                style="background-color: black; 
+                color: chartreuse; width: 500px; height: 30px;">
+                </div>
+              </div>
+            <div class="row">
+                <div class="col">
+                  <h5 style="color:white; text-align: center; font-size: larger; padding: 10px; font-family: Arial, Helvetica, sans-serif;">Enter the FUELCONSUMPTION_COMB_MPG: </h5>
+                </div>
+                <div class="col">
+                  <input type="text" name="f4" placeholder="FUELCONSUMPTION_COMB_MPG"
+                style="background-color: black;
+                color: chartreuse; width: 500px; height: 30px;">
+                </div>
+              </div>
+                <div 
+                style="border: 5px; 
+                border-color: chartreuse; 
+                padding: 10px;
+                text-align: center;">
+                    <input type="submit" value="predict" 
+                    style="background-color: black; 
+                    color: white; 
+                    width: 100px; 
+                    height: 50px;">
+                  </div>
+                </form>
+            </div>
+            <div class="card text-center" style="width:21.5em;margin:0 auto;">
+                <div class="card-body">
+                  <p class="card text">
+                  <h1>
+                    <font color="green">{{prediction}}</font>
+                  </h1>
+                  </p>
+                </div>
+                </div>
+</body>
+</html>
